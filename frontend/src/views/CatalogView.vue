@@ -1,0 +1,5 @@
+<template>
+  <section>
+    <h1>Каталог товаров</h1>
+  </section>
+</template>
