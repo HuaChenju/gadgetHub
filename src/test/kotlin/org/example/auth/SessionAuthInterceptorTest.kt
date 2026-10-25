@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
+import org.springframework.boot.test.context.TestComponent
 import org.springframework.context.annotation.Import
 import org.springframework.http.MediaType
 import org.springframework.mock.web.MockHttpSession
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 
 @WebMvcTest(AuthController::class, SessionAccessTestController::class)
-@Import(WebConfig::class, AuthService::class, GlobalExceptionHandler::class)
+@Import(WebConfig::class, AuthService::class, GlobalExceptionHandler::class, SessionAccessTestController::class)
 class SessionAuthInterceptorTest {
     @Autowired
     private lateinit var mvc: MockMvc
@@ -75,6 +76,7 @@ class SessionAuthInterceptorTest {
     }
 }
 
+@TestComponent
 @RestController
 class SessionAccessTestController {
     @GetMapping("/api/goods", "/api/goods/filters", "/api/goods/1", "/api/orders", "/api/showcase")
