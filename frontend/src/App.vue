@@ -6,7 +6,6 @@ import { cart, CART_STORAGE_KEY } from './state/cart'
 import { ApiError, NetworkError } from './api/client'
 import catalogIcon from './assets/icons/catalog.svg'
 import profileIcon from './assets/icons/profile.svg'
-import cartIcon from './assets/icons/cart.svg'
 import mobileIcon from './assets/icons/mobile.svg'
 import vkIcon from './assets/social/vk.png'
 import telegramIcon from './assets/social/telegram.png'
@@ -67,7 +66,7 @@ async function logout() {
             <img :src="catalogIcon" alt="" width="16" height="16" />Каталог
           </RouterLink>
           <RouterLink v-if="authState.user" class="nav-link cart-link" :to="{ name: 'cart' }" :aria-label="cartLabel">
-            <img :src="cartIcon" alt="" width="16" height="16" />Корзина
+            <img :src="profileIcon" alt="" width="16" height="16" />Корзина
             <span v-if="cartBadge" class="cart-badge" aria-hidden="true">{{ cartBadge }}</span>
           </RouterLink>
           <button v-if="authState.user" class="nav-link logout-button" type="button"

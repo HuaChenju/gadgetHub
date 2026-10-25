@@ -166,7 +166,7 @@ Content-Type: application/json
 ```json
 {
   "login": "student",
-  "password": "gadget123"
+  "password": "student"
 }
 ```
 
